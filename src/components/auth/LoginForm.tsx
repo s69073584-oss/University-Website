@@ -1,8 +1,28 @@
 
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { GraduationCap, ArrowRight } from "lucide-react";
 
 export default function Login() {
+  const router = useRouter();
+  const [role, setRole] = useState("Student");
+
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const dashboards: Record<string, string> = {
+      Student: "/student",
+      Teacher: "/teacher",
+      Admin: "/admin",
+      Parent: "/parent",
+    };
+
+    router.push(dashboards[role]);
+  };
+
   return (
     <main className="min-h-[calc(100vh-100px)] bg-[#f7faf7] px-5 py-10 md:py-14">
       <div className="mx-auto grid max-w-[980px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-10">
@@ -21,10 +41,9 @@ export default function Login() {
             Connect to your courses, your community, and your next opportunity.
           </p>
 
-          {/* Campus Image */}
           <div className="mt-7 h-36 overflow-hidden rounded-lg bg-[#dce9df] sm:h-40">
             <img
-              src="/images/school.jpg"
+              src="/images/School.jpg"
               alt="AL-RAZI campus"
               className="h-full w-full object-cover"
             />
@@ -45,7 +64,7 @@ export default function Login() {
             A new day of possibilities.
           </h1>
 
-          <form className="mt-7 space-y-4">
+          <form onSubmit={handleLogin} className="mt-7 space-y-4">
 
             {/* Preview As */}
             <div>
@@ -54,12 +73,13 @@ export default function Login() {
               </label>
 
               <select
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
                 className="w-full rounded-md border border-gray-200 bg-white px-3 py-3 text-sm text-gray-700 outline-none focus:border-[#185b43]"
-                defaultValue="Student"
               >
                 <option>Student</option>
                 <option>Teacher</option>
-                <option>Staff</option>
+                <option>Admin</option>
                 <option>Parent</option>
               </select>
             </div>

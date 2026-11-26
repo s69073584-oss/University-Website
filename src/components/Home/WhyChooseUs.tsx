@@ -64,7 +64,7 @@ export default function WhyChooseUs() {
             <div className="relative h-[300px] overflow-hidden rounded-xl sm:h-[400px] lg:h-[490px]">
 
               <img
-                src="/images/school.jpg"
+                src="/images/School.jpg"
                 alt="Beautiful university campus"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

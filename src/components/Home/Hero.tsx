@@ -91,7 +91,7 @@ export default function Hero() {
           {/* Campus Image */}
           <div className="relative h-[340px] overflow-hidden rounded-[35px] sm:h-[420px]">
             <Image
-              src="/images/school.jpg"
+              src="/images/School.jpg"
               alt="AL-RAZI University Campus"
               fill
               priority

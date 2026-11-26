@@ -24,7 +24,7 @@ const campusImages = [
   },
   {
     image:
-      "/images/activity.jpg",
+      "/images/Activity.jpg",
     title: "Student Activities",
     category: "Community",
     className: "",
